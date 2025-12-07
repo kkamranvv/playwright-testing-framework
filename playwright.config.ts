@@ -34,7 +34,7 @@ export default defineConfig({
       use: {
         baseURL: ENV.apiReqresUrl,
         extraHTTPHeaders: {
-          "x-api-key": "reqres-free-v1",
+          "x-api-key": "reqres_6b439d879d774f65b24ef898f3cc73cb",
           "Content-Type": "application/json",
         },
       },
