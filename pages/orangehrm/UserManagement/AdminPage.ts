@@ -14,7 +14,6 @@ export class UserAddPage {
       "https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers"
     );
 
-    // Ждём, пока страница прогрузится
     await this.page.waitForSelector("//button[normalize-space()='Search']");
   }
 
@@ -26,10 +25,6 @@ export class UserAddPage {
   }
 
   async clickAddBtn() {
-    // Сначала очищаем фильтр
-    await this.resetFilters();
-
-    // Теперь нажимаем Add
-    await Promise.all([this.page.waitForNavigation(), this.addBtn.click()]);
+    await this.addBtn.click();
   }
 }
