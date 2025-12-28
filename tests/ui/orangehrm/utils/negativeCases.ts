@@ -1,4 +1,4 @@
-import { admin, employee } from "../utils/data.js";
+import { admin, employee } from "./data.js";
 
 export const negativeEmployeeCases = [
   {
