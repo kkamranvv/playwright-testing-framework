@@ -92,3 +92,23 @@ export const candidate = {
     notes: "Test Note",
   } as CandidateInfo,
 };
+
+export interface ModuleRoute {
+  name: string;
+  url: RegExp;
+}
+
+export const modules: ModuleRoute[] = [
+  { name: "Admin", url: /.*admin/ },
+  { name: "PIM", url: /.*pim/ },
+  { name: "Leave", url: /.*leave/ },
+  { name: "Time", url: /.*time/ },
+  { name: "Recruitment", url: /.*recruitment/ },
+  { name: "My Info", url: /.*pim\/viewPersonalDetails\/empNumber\/\d+/ },
+  { name: "Performance", url: /.*performance/ },
+  { name: "Dashboard", url: /.*dashboard/ },
+  { name: "Directory", url: /.*directory/ },
+  { name: "Maintenance", url: /.*maintenance/ },
+  { name: "Claim", url: /.*claim/ },
+  { name: "Buzz", url: /.*buzz/ },
+];
