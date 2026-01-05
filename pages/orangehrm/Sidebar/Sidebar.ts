@@ -1,4 +1,4 @@
-import { Page, Locator, expect } from "@playwright/test";
+import { Page, Locator } from "@playwright/test";
 
 export class Sidebar {
   readonly page: Page;
@@ -8,7 +8,7 @@ export class Sidebar {
   constructor(page: Page) {
     this.page = page;
 
-    this.toggleBtn = page.locator("button.oxd-sidepanel-toggler");
+    this.toggleBtn = page.locator("//button[@role='none']");
     this.panel = page.locator("aside.oxd-sidepanel");
   }
 
@@ -17,21 +17,18 @@ export class Sidebar {
   }
 
   async isCollapsed(): Promise<boolean> {
-    return await this.panel.evaluate((el) =>
-      el.classList.contains("oxd-sidepanel--collapsed")
-    );
+    return await this.panel.evaluate((el) => el.classList.contains("toggled"));
   }
 
   getMenuItem(name: string): Locator {
     return this.page.locator(
-      `//span[normalize-space()='${name}']/ancestor::li`
+      `//a[contains(@class,'oxd-main-menu-item')]//span[normalize-space()='${name}']/..`
     );
   }
 
   async isActive(name: string): Promise<boolean> {
-    return await this.getMenuItem(name).evaluate(
-      (el) =>
-        el.classList.contains("--active") || el.classList.contains("active")
+    return await this.getMenuItem(name).evaluate((el) =>
+      el.classList.contains("active")
     );
   }
 }

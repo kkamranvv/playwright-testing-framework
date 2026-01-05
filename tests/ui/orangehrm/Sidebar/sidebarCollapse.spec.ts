@@ -1,16 +1,18 @@
-// import { test, expect } from "../../../../fixtures/orangehrm/fixtures.js";
-// import { Sidebar } from "../../../../pages/orangehrm/Sidebar/Sidebar.js";
+import { test, expect } from "../../../../fixtures/orangehrm/fixtures.js";
+import { Sidebar } from "../../../../pages/orangehrm/Sidebar/Sidebar.js";
 
-// test("Sidebar collapses and expands", async ({ login }) => {
-//   const sidebar = new Sidebar(login);
+test("Sidebar collapses and expands", async ({ login }) => {
+  const sidebar = new Sidebar(login);
 
-//   expect(await sidebar.isCollapsed()).toBeFalsy();
+  expect(await sidebar.isCollapsed()).toBeFalsy();
 
-//   await sidebar.collapse();
+  await sidebar.collapse();
+  await expect(async () => {
+    expect(await sidebar.isCollapsed()).toBeTruthy();
+  }).toPass();
 
-//   expect(await sidebar.isCollapsed()).toBeTruthy();
-
-//   await sidebar.collapse();
-
-//   expect(await sidebar.isCollapsed()).toBeFalsy();
-// });
+  await sidebar.collapse();
+  await expect(async () => {
+    expect(await sidebar.isCollapsed()).toBeFalsy();
+  }).toPass();
+});
