@@ -19,8 +19,31 @@ This project combines:
 
 ## 🌐 API Reference
 
-API tests are based on the [Reqres API](https://reqres.in/api-docs/) — a fake REST API for testing and prototyping.  
-It’s used to demonstrate CRUD operations (GET, POST, PUT, DELETE) in the `tests/api/reqres/` folder.
+API tests in this project cover multiple public REST APIs used for testing and prototyping:
+
+🔹 Reqres API
+
+Tests are based on the Reqres API
+ — a fake REST API for testing and prototyping.
+It’s used to demonstrate full CRUD operations (GET, POST, PUT, DELETE) and basic API validation.
+Tests are located in the tests/api/reqres/ folder.
+
+🔹 JSONPlaceholder API
+
+Extended API tests are implemented using JSONPlaceholder
+ — a free fake REST API for prototyping and testing.
+ 
+It’s used to validate operations on:
+
+Posts
+
+Comments
+
+Users
+
+Albums
+
+Todos
 
 ## 📂 Project Structure
 
